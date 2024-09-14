@@ -1,16 +1,29 @@
 {
   "name": "staking-contract",
   "version": "1.0.0",
-  "description": "",
+  "description": "Upgradable staking contract",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "contracts",
+    "smart-contract",
+    "solidity-smart-contract",
+    "staking",
+    "staking-contract",
+    "staking-smart-contract"
+  ],
+  "author": "Parth Kaloliya",
+  "license": "MIT",
   "devDependencies": {
+    "ethereum-waffle": "^2.4.1",
+    "ethereumjs-util": "^6.2.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "solc": "0.5.16"
+  },
+  "dependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "hardhat": "^2.22.10"
+    "@openzeppelin/contracts": "^5.0.2",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.6"
   }
 }
