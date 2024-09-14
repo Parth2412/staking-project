@@ -43,7 +43,6 @@ contract StakingContract is Initializable, OwnableUpgradeable, UUPSUpgradeable, 
         stakingToken = _stakingToken;
         multiSigAddress = _multiSigAddress;
 
-        // Initialize reward tiers (example)
         rewardTiers[1] = RewardInfo(1 weeks, 5, 2, 1 days);   // 1 week, 5% reward, 2% penalty, 1-day cooldown
         rewardTiers[4] = RewardInfo(4 weeks, 10, 5, 2 days);  // 4 weeks, 10% reward, 5% penalty, 2-day cooldown
         rewardTiers[8] = RewardInfo(8 weeks, 20, 10, 3 days); // 8 weeks, 20% reward, 10% penalty, 3-day cooldown
