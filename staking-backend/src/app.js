@@ -6,7 +6,7 @@ dotenv.config();
 
 const app = express();
 
-mongoose.connect('mongodb://127.0.0.1:38128/staking-events', {
+mongoose.connect(process.env.MONGO_STRING, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
