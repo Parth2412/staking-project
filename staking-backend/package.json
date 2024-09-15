@@ -1,0 +1,84 @@
+{
+    "name": "staking-contract-backend",
+    "version": "1.0.0",
+    "description": "Staking contract backend that listens to every event of smart contract and store the data in the database",
+    "private": true,
+    "main": "app.js",
+    "type": "module",
+    "scripts": {
+        "dev": "nodemon --experimental-json-modules ./src/app.js"
+    },
+    "engines": {
+        "node": "18.13.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Parth2412/staking-project"
+    },
+    "keywords": [
+        "contracts",
+        "smart-contract",
+        "solidity-smart-contract",
+        "staking",
+        "staking-contract",
+        "staking-smart-contract",
+        "staking-backend",
+        "staking-smart-contract-backend",
+        "web3",
+        "web3-events",
+        "staking-events"
+    ],
+    "author": "Parth Kaloliya",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Parth2412/staking-project/issues"
+    },
+    "homepage": "https://github.com/Parth2412/staking-project#readme",
+    "dependencies": {
+        "app-root-path": "^3.0.0",
+        "cors": "^2.8.5",
+        "debug": "^4.3.3",
+        "dotenv": "^10.0.0",
+        "express": "^4.17.1",
+        "mongoose": "^5.13.14",
+        "morgan": "^1.10.0",
+        "path": "^0.12.7",
+        "text-encoding": "^0.7.0",
+        "web3": "^4.9.0",
+        "web3-providers-ws": "^4.0.7",
+        "winston": "^3.3.3",
+        "ws": "^8.18.0"
+    },
+    "devDependencies": {
+        "@babel/eslint-parser": "^7.22.9",
+        "dotenv": "^10.0.0",
+        "eslint": "^7.32.0",
+        "eslint-config-airbnb": "^18.2.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^3.4.1",
+        "eslint-plugin-promise": "^5.2.0",
+        "eslint-plugin-security": "^1.4.0",
+        "husky": "^4.3.8",
+        "install": "^0.13.0",
+        "lint-staged": "^10.2.11",
+        "nodemon": "^2.0.4",
+        "npm": "^9.8.1",
+        "prettier": "^2.5.1",
+        "pretty-quick": "^2.0.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.js": [
+            "prettier --write",
+            "eslint --fix src/",
+            "pretty-quick --staged"
+        ]
+    }
+}
