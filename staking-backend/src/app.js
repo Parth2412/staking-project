@@ -1,16 +1,15 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
-
-dotenv.config();
+import config from './config/config.js';
+import './services/stakingService.js';
 
 const app = express();
 
-mongoose.connect(process.env.MONGO_STRING, {
+mongoose.connect(config.mongoString, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
 });
 
-app.listen(3000, () => {
-	console.log('Server started on port 3000');
+app.listen(config.port, () => {
+	console.log(`Server started on port ${config.port}`);
 });
