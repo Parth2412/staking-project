@@ -13,6 +13,10 @@
   ],
   "author": "Parth Kaloliya",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parth2412/staking-project"
+  },
   "scripts": {
     "deploy": "npx hardhat run scripts/deployContract.js --network amoy"
   },
