@@ -47,81 +47,33 @@ async function listenToEvents() {
 		});
 
 		stakedEventSubscription.on('data', async (event) => {
-			console.log(`Staked event data: ${event.topics[0]}`);
-			if (event.topics.length === 1) {
-				const getStakedEventData = web3.eth.abi.decodeLog(
-					[
-						{
-							indexed: true,
-							internalType: 'address',
-							name: 'user',
-							type: 'address',
-						},
-						{
-							indexed: false,
-							internalType: 'uint256',
-							name: 'amount',
-							type: 'uint256',
-						},
-						{
-							indexed: false,
-							internalType: 'uint256',
-							name: 'duration',
-							type: 'uint256',
-						},
-					],
-					event.data,
-					event.topics[0]
-				);
-				const { user, amount, duration } = getStakedEventData;
-				console.log(user, amount, duration);
-			}
+			const decimals = 18n;
+			const { user, amount, duration } = event.returnValues;
+			console.log('Staking details:', user, amount, duration);
+			const newStake = new Staking({
+				user,
+				amount: Number(Number(amount) / Number(10) ** Number(decimals)),
+				duration: Number(duration),
+				stakingTime: Date.now(),
+			});
+			await newStake.save();
 		});
 
 		unstakedEventSubscription.on('data', async (event) => {
-			console.log(`Unstaked event data: ${event.topics[0]}`);
-			if (event.topics.length === 1) {
-				const getUnstakedEventData = web3.eth.abi.decodeLog(
-					[
-						{
-							indexed: true,
-							internalType: 'address',
-							name: 'user',
-							type: 'address',
-						},
-						{
-							indexed: false,
-							internalType: 'uint256',
-							name: 'amount',
-							type: 'uint256',
-						},
-						{
-							indexed: false,
-							internalType: 'bool',
-							name: 'early',
-							type: 'bool',
-						},
-						{
-							indexed: false,
-							internalType: 'uint256',
-							name: 'penalty',
-							type: 'uint256',
-						},
-					],
-					event.data,
-					event.topics[0]
-				);
-				const { user, amount, penalty, reward } = getUnstakedEventData;
-				console.log(user, amount, penalty, reward);
-			}
+			const { user, amount, penalty, reward } = event.returnValues;
+			console.log('Unstaking details:', user, amount, penalty, reward);
+			await Staking.findOneAndUpdate(
+				{ user },
+				{ withdrawn: true, penalty: Number(penalty), reward: Number(reward) }
+			);
 		});
 
 		stakedEventSubscription.on('error', (error) => {
-			logger.error(`error: ${error}`);
+			console.log(`error: ${error}`);
 		});
 
 		unstakedEventSubscription.on('error', (error) => {
-			logger.error(`error: ${error}`);
+			console.log(`error: ${error}`);
 		});
 	});
 
@@ -146,7 +98,7 @@ async function listenToEvents() {
 	});
 
 	provider.on('disconnect', (error) => {
-		logger.error(`Closed webSocket connection`, error);
+		console.log(`Closed webSocket connection`, error);
 		// eslint-disable-next-line no-process-exit
 		process.exit(0);
 	});
