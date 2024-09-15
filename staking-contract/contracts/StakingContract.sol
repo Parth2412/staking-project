@@ -1,14 +1,14 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.20;
 
-import "@openzeppelin/contracts-upgradeable/token/ERC20/IERC20Upgradeable.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
 import "@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol";
+import "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
 
 contract StakingContract is Initializable, OwnableUpgradeable, UUPSUpgradeable, ReentrancyGuardUpgradeable {
-    IERC20Upgradeable public stakingToken;
+    IERC20 public stakingToken;
     address public multiSigAddress;
 
     struct StakingInfo {
@@ -36,7 +36,7 @@ contract StakingContract is Initializable, OwnableUpgradeable, UUPSUpgradeable, 
         _;
     }
 
-    function initialize(IERC20Upgradeable _stakingToken, address _multiSigAddress) public initializer {
+    function initialize(IERC20 _stakingToken, address _multiSigAddress) public initializer {
         __UUPSUpgradeable_init();
         __ReentrancyGuard_init();
 
