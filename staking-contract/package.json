@@ -13,6 +13,9 @@
   ],
   "author": "Parth Kaloliya",
   "license": "MIT",
+  "scripts": {
+    "deploy": "npx hardhat run scripts/deployContract.js --network amoy"
+  },
   "devDependencies": {
     "ethereum-waffle": "^2.4.1",
     "ethereumjs-util": "^6.2.0",
@@ -23,6 +26,7 @@
   "dependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
     "@openzeppelin/contracts": "^5.0.2",
+    "@openzeppelin/contracts-upgradeable": "^5.0.2",
     "dotenv": "^16.4.5",
     "hardhat": "^2.22.6"
   }
