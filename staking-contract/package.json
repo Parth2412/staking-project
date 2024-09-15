@@ -1,0 +1,41 @@
+{
+  "name": "staking-contract",
+  "version": "1.0.0",
+  "description": "Upgradable staking contract",
+  "main": "index.js",
+  "keywords": [
+    "contracts",
+    "smart-contract",
+    "solidity-smart-contract",
+    "staking",
+    "staking-contract",
+    "staking-smart-contract"
+  ],
+  "author": "Parth Kaloliya",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Parth2412/staking-project"
+  },
+  "scripts": {
+    "deploy-token": "npx hardhat run scripts/deployToken.js --network amoy",
+    "deploy-contract": "npx hardhat run scripts/deployContract.js --network amoy",
+    "initialize-contract": "npx hardhat run scripts/initialize.js --network amoy",
+    "stake": "npx hardhat run scripts/stake.js --network amoy",
+    "unstake": "npx hardhat run scripts/unstake.js --network amoy"
+  },
+  "devDependencies": {
+    "ethereum-waffle": "^2.4.1",
+    "ethereumjs-util": "^6.2.0",
+    "prettier": "^1.19.1",
+    "rimraf": "^3.0.0",
+    "solc": "0.5.16"
+  },
+  "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@openzeppelin/contracts": "^5.0.2",
+    "@openzeppelin/contracts-upgradeable": "^5.0.2",
+    "dotenv": "^16.4.5",
+    "hardhat": "^2.22.6"
+  }
+}
