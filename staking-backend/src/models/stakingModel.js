@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const stakingSchema = new mongoose.Schema({
 	user: { type: String, required: true },
@@ -10,4 +10,6 @@ const stakingSchema = new mongoose.Schema({
 	reward: { type: Number, default: 0 },
 });
 
-module.exports = mongoose.model('Staking', stakingSchema);
+const stakingModel = mongoose.model('Staking', stakingSchema);
+
+export default stakingModel;
