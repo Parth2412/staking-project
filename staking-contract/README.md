@@ -56,13 +56,27 @@ The contract offers different rewards, penalties, and cooldown periods based on 
     npx hardhat compile
     ```
 
-    *5. Deploy the contract to the Polygon Amoy testnet by running*
+    Before deploying the main staking contract, we'll first deploy a basic ERC20 token contract. This token will be used within the staking contract, as it's difficult to obtain the token address for MATIC/WMATIC on the testnet. By creating our own token, we can easily integrate it into the staking contract. 
+
+    *5. Deploy the token contract to the Polygon Amoy testnet by running*
+
+    ```
+    npm run deploy-token
+    ```
+
+    *6. Verify the ERC20 token contract(STK) on Polygon Amoy testnet by running*
+
+    ```
+    npx hardhat verify --network amoy DEPLOYED_SMART_CONTRACT_ADDRESS
+    ```
+
+    *7. Deploy the contract to the Polygon Amoy testnet by running*
 
     ```
     npm run deploy
     ```
 
-    *6. Verify the contract on Polygon Amoy testnet by running*
+    *8. Verify the contract on Polygon Amoy testnet by running*
 
     ```
     npx hardhat verify --network amoy DEPLOYED_SMART_CONTRACT_ADDRESS
