@@ -73,11 +73,21 @@ The contract offers different rewards, penalties, and cooldown periods based on 
     *7. Deploy the contract to the Polygon Amoy testnet by running*
 
     ```
-    npm run deploy
+    npm run deploy-contract
     ```
 
     *8. Verify the contract on Polygon Amoy testnet by running*
 
     ```
     npx hardhat verify --network amoy DEPLOYED_SMART_CONTRACT_ADDRESS
+    ```
+
+    ***Note:*** After deploying the ERC20 token contract and the staking smart contract, make sure to save both contract addresses for future reference.
+
+    *9. Initialize the contract*
+
+    Initialize is a smart contract function which will take 2 arguments: 1) ERC20 Token Contract Address, 2) MultiSig Wallet Address. Before running this script, Please open scripts/initialize.js file and change STAKING_CONTRACT_ADDRESS, TOKEN_CONTRACT_ADDRESS, MULTISIG_ACCOUNT_ADDRESS.
+
+    ```
+    npm run initialize-contract
     ```
