@@ -19,7 +19,8 @@
   },
   "scripts": {
     "deploy-token": "npx hardhat run scripts/deployToken.js --network amoy",
-    "deploy-contract": "npx hardhat run scripts/deployContract.js --network amoy"
+    "deploy-contract": "npx hardhat run scripts/deployContract.js --network amoy",
+    "initialize-contract": "npx hardhat run scripts/initialize.js --network amoy"
   },
   "devDependencies": {
     "ethereum-waffle": "^2.4.1",
